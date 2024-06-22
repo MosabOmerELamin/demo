@@ -1,0 +1,27 @@
+name: Deploy Odoo Module
+
+on:
+  push:
+    branches:
+      - main # Change to your branch name if needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Update module on server
+        run: |
+          ssh odoo16@158.220.81.151 << 'EOF'
+          cd /opt/demo/freight_management_system-16.0.1.0.0
+          git pull origin main  # Change to your branch name if needed
+          sudo systemctl restart odoo_new
+          EOF
