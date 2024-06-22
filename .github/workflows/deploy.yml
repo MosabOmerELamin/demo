@@ -3,7 +3,7 @@ name: Deploy Odoo Module
 on:
   push:
     branches:
-      - master # Change to your branch name if needed
+      - main # Change to your branch name if needed
 
 jobs:
   deploy:
@@ -17,6 +17,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Add server to known_hosts
         run: |
           mkdir -p ~/.ssh
