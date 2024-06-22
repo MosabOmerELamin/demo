@@ -3,7 +3,7 @@ name: Deploy Odoo Module
 on:
   push:
     branches:
-      - main # Change to your branch name if needed
+      - master # Change to your branch name if needed
 
 jobs:
   deploy:
