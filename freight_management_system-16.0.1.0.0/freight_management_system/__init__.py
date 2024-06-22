@@ -22,4 +22,4 @@
 ###################################################################################
 from . import model
 from . import wizard
-#hadeel manager
+#hadeel project manager
