@@ -18,6 +18,12 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+	
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H 158.220.81.151 >> ~/.ssh/known_hosts	
+
       - name: Update module on server
         run: |
           ssh odoo16@158.220.81.151 << 'EOF'
