@@ -27,6 +27,8 @@ jobs:
         run: |
           ssh odoo16@158.220.81.151 << 'EOF'
           cd /opt/demo/haleem/demo
-          git pull origin main  # Change to your branch name if needed
+          git fetch origin master
+          git merge origin/master
+          git push origin master
           sudo systemctl restart odoo_new
           EOF
