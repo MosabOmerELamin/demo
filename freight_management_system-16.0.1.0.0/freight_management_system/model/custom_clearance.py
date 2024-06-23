@@ -39,7 +39,7 @@ class CustomClearance(models.Model):
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirm'),
                               ('done', 'Done')], default='draft')
     test = fields.Char('test')
-    demo = fields.Char('demo')
+    # demo = fields.Char('demo')
 
 
     @api.depends('freight_id')

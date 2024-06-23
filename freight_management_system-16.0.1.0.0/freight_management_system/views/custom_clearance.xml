@@ -31,7 +31,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="test"/>
-                                <field name="demo"/>
+                                <!-- <field name="demo"/> -->
                             </group>
                             <group>
                                 <group>
