@@ -38,8 +38,8 @@ class CustomClearance(models.Model):
     line_ids = fields.One2many('custom.clearance.line', 'line_id')
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirm'),
                               ('done', 'Done')], default='draft')
-    test = fields.Char('test')
-    demo = fields.Char('demo')
+    # test = fields.Char('test')
+    # demo = fields.Char('demo')
 
 
     @api.depends('freight_id')
