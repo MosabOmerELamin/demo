@@ -29,7 +29,7 @@
     'maintainer': 'NCTR',
     'company': 'NCTR',
     'website': 'https://www.nctr.com',
-    'depends': ['base', 'product', 'account','freight_management_system'],
+    'depends': ['freight_management_system'],
     'data': [
    
     ],
