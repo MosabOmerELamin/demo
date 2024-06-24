@@ -20,6 +20,4 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 ###################################################################################
-from . import model
-from . import wizard
-#hadeel project manager test12
+
