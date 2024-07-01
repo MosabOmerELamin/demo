@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="freight_order_inherit" model="ir.ui.view">
+            <field name="name">freight.order.inherit</field>
+            <field name="model">freight.order</field>
+            <field name="inherit_id" ref="freight_management_system.freight_order_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_date']" position="after">
+                    <field name="bill_of_lading"/>
+                    <field name="shipment_status"/>
+                </xpath>
+                <xpath expr="//field[@name='discharging_port_id']" position="replace">
+                    <field name="port_of_loading"/>
+                  
+                </xpath>
+                <xpath expr="//field[@name='loading_port_id']" position="replace">
+                    <field name="port_of_discharge"/>
+                  
+                </xpath>
+                <xpath expr="//field[@name='track_ids']/tree" position="inside"> 
+                    <field name="move"/>
+                    <field name="location"/>
+                    <field name="vessel"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>

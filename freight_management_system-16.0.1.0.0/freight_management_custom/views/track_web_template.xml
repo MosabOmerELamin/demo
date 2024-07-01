@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <template id="tracking_form" name="Tracking Form">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Tracking Search</h1>
+                <form action="/tracking/search" method="post">
+                    <input type="text" name="bill_of_lading" placeholder="Enter Bill of Lading Number" required="required"/>
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="tracking_result" name="Tracking Result">
+        <t t-call="website.layout">
+            <div class="container">
+                <t t-if="record">
+                    <h1>Bill of Lading: <t t-esc="record.bill_of_lading"/></h1>
+                    <p><strong>Port of Load:</strong> <t t-esc="record.port_of_loading"/></p>
+                    <p><strong>Port of Discharge:</strong> <t t-esc="record.port_of_discharge"/></p>
+                    <p><strong>shipment status:</strong> <t t-esc="record.shipment_status"/></p>
+                    <!-- <p><strong>Transhipment:</strong> <t t-esc="record.transhipment"/></p> -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Description</th>
+                                <th>Vessel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="record.track_ids" t-as="track">
+                                <tr>
+                                    <td><t t-esc="track.date"/></td>
+                                    <td><t t-esc="track.location"/></td>
+                                    <td><t t-esc="track.move"/></td>
+                                    <td><t t-esc="track.vessel"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+                <t t-else="">
+                    <p>No record found for the given Bill of Lading number.</p>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>    

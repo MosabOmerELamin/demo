@@ -31,6 +31,8 @@
     'website': 'https://www.nctr.com',
     'depends': ['freight_management_system'],
     'data': [
+        'views/api_tracking_inherit_views.xml',
+        'views/track_web_template.xml'
    
     ],
     'installable': True,
